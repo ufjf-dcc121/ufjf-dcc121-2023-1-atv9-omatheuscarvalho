@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 9: Forms</title>
+</head>
+<body>
+    <header>
+        <h1>Atividade 9: Forms</h1>
+    </header>
+    <main>
+        <form action="">
+            <input type="text" name="nome" placeholder="Nome"/>
+            <input type="text" name="sobrenome" placeholder="Sobrenome"/>
+            <input type="text" name="idade" placeholder="Idade"/>
+            <input type="submit" >
+            <input type="reset" >
+        </form>
+        <p id="pessoa"></p>
+    </main>
+</body>
+<script>
+    const form = document.querySelector("form");
+    form.addEventListener("submit", aoEnviar);
+    const pNome = document.querySelector("#pessoa");
+
+    function aoEnviar(e){
+        e.preventDefault();
+        console.log("teste");
+        const nome = form.nome.value;
+        const sobrenome = form.sobrenome.value;
+        const idade = form.idade.value;
+        pNome.innerHTML = `Olá, <spam> ${nome} ${sobrenome}, ${idade} anos.</spam>`
+        form.reset();
+        form.nome.focus();
+    }
+</script>
+</html>
