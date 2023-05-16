@@ -24,12 +24,15 @@
             <input type="reset" >
         </form>
         <p id="pessoa"></p>
+        <h2>Visitantes anteriores:</h2>
+        <ol></ol>
     </main>
 </body>
 <script>
     const form = document.querySelector("form");
     form.addEventListener("submit", aoEnviar);
     const pNome = document.querySelector("#pessoa");
+    const lista = document.querySelector('ol')
 
     function aoEnviar(e){
         e.preventDefault();
@@ -40,6 +43,31 @@
         pNome.innerHTML = `Olá, <span> ${nome} ${sobrenome}, ${idade} anos.</span>`
         form.reset();
         form.nome.focus();
+
+        adicionarPessoa(nome, sobrenome, idade);
+    }
+    function adicionarPessoa(nome, sobrenome, idade){
+        const li = document.createElement('li');
+        const divPessoa = document.createElement('div');
+        divPessoa.classList.add('pessoa');
+
+        const spanNome = document.createElement('div');
+        spanNome.classList.add('nome');
+        spanNome.textContent = nome;
+        divPessoa.appendChild(spanNome);
+
+        const spanSobrenome = document.createElement('div');
+        spanSobrenome.classList.add('sobrenome');
+        spanSobrenome.textContent = sobrenome;
+        divPessoa.appendChild(spanSobrenome);
+
+        const spanIdade = document.createElement('div');
+        spanIdade.classList.add('idade');
+        spanIdade.textContent = idade;
+        divPessoa.appendChild(spanIdade);
+
+        li.appendChild(divPessoa);
+        lista.appendChild(li);
     }
 </script>
 </html>
