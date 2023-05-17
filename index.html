@@ -18,6 +18,12 @@
         .idade {
             color: purple;
         }
+        .sobrenome::before {
+            content: ' ';
+        }
+        .idade::before {
+            content: ', ';
+        }
     </style>
 </head>
 <body>
@@ -60,17 +66,17 @@
         const divPessoa = document.createElement('div');
         divPessoa.classList.add('pessoa');
 
-        const spanNome = document.createElement('div');
+        const spanNome = document.createElement('span');
         spanNome.classList.add('nome');
         spanNome.textContent = nome;
         divPessoa.appendChild(spanNome);
 
-        const spanSobrenome = document.createElement('div');
+        const spanSobrenome = document.createElement('span');
         spanSobrenome.classList.add('sobrenome');
         spanSobrenome.textContent = sobrenome;
         divPessoa.appendChild(spanSobrenome);
 
-        const spanIdade = document.createElement('div');
+        const spanIdade = document.createElement('span');
         spanIdade.classList.add('idade');
         spanIdade.textContent = idade;
         divPessoa.appendChild(spanIdade);
